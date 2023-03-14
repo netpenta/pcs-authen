@@ -36,7 +36,6 @@ public class UserDaoImpl implements UserDao {
     @Override
     public UserEntity findByUserName(String userName){
         StringBuilder sql = selectUserSql().append("AND mus.user_name = ? ");
-        System.out.println("----- test by ui 02 -----     asdasdsa");
         try{
             return jdbcTemplate.queryForObject(sql.toString(), new BeanPropertyRowMapper<>(UserEntity.class), userName);
         }catch (EmptyResultDataAccessException ignored){
